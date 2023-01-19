@@ -13,8 +13,9 @@ func main() {
 	http.HandleFunc("/login/delete", handler.DeleteHandler)
 	http.HandleFunc("/login/newResistration", handler.NewResistrationHandler)
 	http.HandleFunc("/login/newResistrationPost", handler.NewResistrationPostHandler)
-	// WebSocket
 	http.HandleFunc("/chat", handler.ChatHandler)
+	// WebSocket
+	http.HandleFunc("/ws", handler.HandleConnections)
 	go handler.HandleMessages()
 	http.Handle("/static/", http.StripPrefix("/static", http.FileServer(http.Dir("./static/"))))
 	fmt.Println("Server Start Up ...... localhost:8080/login")

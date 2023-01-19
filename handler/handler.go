@@ -44,6 +44,16 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func ChatHandler(w http.ResponseWriter, r *http.Request) {
+	html, err := template.ParseFiles("chatPage.html")
+	if err != nil {
+		log.Fatal(err)
+	}
+	if err := html.Execute(w, nil); err != nil {
+		log.Fatal(err)
+	}
+}
+
 // ログインページで入力ボタンを押した際に行われるハンドラ処理
 // userName と password 入力がDB内にあるかどうか確認
 func CreateHandler(w http.ResponseWriter, r *http.Request) {
@@ -133,7 +143,7 @@ func deleteUser(userName string, password string) (count int64) {
 }
 
 // チャットページのハンドラ
-func ChatHandler(w http.ResponseWriter, r *http.Request) {
+func HandleConnections(w http.ResponseWriter, r *http.Request) {
 	ws, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
 		log.Fatal(err)
