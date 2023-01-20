@@ -1,0 +1,166 @@
+* {
+  /* ボックスサイズを算出
+    paddingとborderをwidthとheightに含める */
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #e6f7ec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.chat-container {
+  width: 40%;
+  height: 98%;
+}
+
+.chat-header {
+  background: #8688f5;
+  box-shadow: 0px 2px 10px rgba(122, 121, 119, 0.966);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  padding: 30px;
+  height: 15%;
+  border-radius: 10px;
+}
+
+.chat-header label {
+  margin-bottom: 10px;
+  color: #fff;
+  font-size: 1.3rem;
+}
+
+.chat-header input {
+  border: none;
+  font-size: 1.3rem;
+  font-family: inherit;
+  padding: 5px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.chat-header input:focus {
+  outline: none;
+}
+
+.chat-body {
+  background-color: ivory;
+  box-shadow: 0px 2px 10px rgba(122, 121, 119, 0.966);
+  height: 75%;
+  border-radius: 10px;
+}
+
+.chat-body ul {
+  font-family: "Indie Flower", cursive;
+  font-size: 1.1rem;
+  list-style: none;
+  padding: 2px;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+}
+
+.chat-body ul li {
+  width: 40%;
+  padding: 15px;
+  border-radius: 240px 15px 100px 15px / 15px 200px 15px 185px;
+  border: none;
+}
+
+.chat-body ul li.me {
+  margin: 10px auto 10px 10px;
+  background-color: orange;
+  color: #fff;
+}
+
+.chat-body ul li.other {
+  /* 右寄せ */
+  margin: 10px 10px 10px auto;
+  background-color: powderblue;
+  text-align: right;
+}
+
+.send-area {
+  position: relative;
+}
+
+.message {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  width: 80%;
+  height: 30px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.message:focus {
+  outline: none;
+}
+
+.submit {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  width: 10%;
+  font-weight: bold;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
+  color: #fff;
+  background: rgb(248, 121, 163);
+}
+
+.submit:focus {
+  outline: none;
+}
+
+.oneline-user-container {
+  height: 100vh;
+  width: 200px;
+}
+
+.oneline-user-container ul {
+  font-family: "Indie Flower", cursive;
+  list-style: none;
+  color: #111111;
+}
+
+.oneline-user-container li {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 30px;
+  background: ivory;
+  border-radius: 10px;
+}
+
+@media (max-width: 1200px) {
+  .chat-header label {
+    margin-bottom: 10px;
+    font-size: 1rem;
+  }
+
+  .chat-header input {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 560px) {
+  .chat-header label {
+    font-size: 0.9rem;
+  }
+
+  .chat-header input {
+    padding: 3px;
+  }
+}

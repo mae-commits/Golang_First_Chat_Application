@@ -8,8 +8,8 @@
     <h1>New restration Page</h1>
     <div>Please fill out below.</div>
     <form action="/login/newResistrationPost" method="post">
-    <div>Username: <input type="text" name="userName"></div>
-    <div>Password: <input type="text" name="password"></div>
+    <div>Username: <input type="text" name="userName" autocomplete="off" placeholder="Your username"></div>
+    <div>Password: <input type="text" name="password" autocomplete="off" placeholder="Your password"></div>
     <div><input type="submit" value= "入力"></div>
     </form>
 </body>

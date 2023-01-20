@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+        crossorigin="anonymous" />
+    <title>Cheat App</title>
+    <!-- css読み込み -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="chat-container">
+        <div class="chat-header">
+            <label for="username">YOUR NAME</label>
+            <!-- ユーザ名を入力する -->
+            <input type="text" id="username" class="username" autocomplete="off" placeholder=":) selfnote">
+        </div>
+        <!-- Chat 内容の表示 -->
+        <div class="chat-body">
+            <ul id="message-list">
+            </ul>
+            <!-- message 送信フォーム及びボタンの実装 -->
+            <div class="send-area">
+                <input type="text" id="message" class="message" autocomplete="off" placeholder="message...">
+                
+                <button id="submit" class="submit" onclick="sendMessage()">
+                    <i class="far fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="oneline-user-container">
+        <ul id="online-users">
+            <li>XXXX</li>
+        </ul>
+    </div>
+    <!-- js読み込み -->
+    <script src="/static/reconnecting-websocket.min.js"></script>
+    <script src="/static/scripts.js"></script>
+</body>
+</html>
