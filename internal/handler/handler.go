@@ -158,14 +158,6 @@ func getUserList() []string {
 	return clientList
 }
 
-// ログインページのハンドラ
-func LoginHandler(w http.ResponseWriter, r *http.Request) {
-	err := renderPage(w, "loginPage.jet", nil)
-	if err != nil {
-		log.Println(err)
-	}
-}
-
 // .jet ファイルの中身を読込、エラーハンドリング
 func renderPage(w http.ResponseWriter, tmpl string, data jet.VarMap) error {
 	view, err := views.GetTemplate(tmpl)
@@ -182,6 +174,14 @@ func renderPage(w http.ResponseWriter, tmpl string, data jet.VarMap) error {
 	return nil
 }
 
+// ログインページ
+func LoginHandler(w http.ResponseWriter, r *http.Request) {
+	err := renderPage(w, "loginPage.jet", nil)
+	if err != nil {
+		log.Println(err)
+	}
+}
+
 // ログインページで入力ボタンを押した際に行われるハンドラ処理
 // userName と password 入力がDB内にあるかどうか確認
 func CreateHandler(w http.ResponseWriter, r *http.Request) {
@@ -191,8 +191,6 @@ func CreateHandler(w http.ResponseWriter, r *http.Request) {
 	Is_password := strings.ReplaceAll(password, " ", "")
 	count := account.GetUser(userName, password)
 	if Is_userName == "" || Is_password == "" {
-		// w.WriteHeader(http.StatusUnauthorized)
-		// fmt.Fprintf(w, "username or password is wrong.")
 		http.Redirect(w, r, "/login", http.StatusFound)
 	} else if count != 0 {
 		// Database 内に該当のusername とpassword の組が存在する場合、
@@ -200,10 +198,11 @@ func CreateHandler(w http.ResponseWriter, r *http.Request) {
 		// そうでない場合は新規登録ページへと戻す
 		http.Redirect(w, r, "/chat", http.StatusFound)
 	} else {
-		http.Redirect(w, r, "/login/newResistration", http.StatusFound)
+		http.Redirect(w, r, "/login", http.StatusFound)
 	}
 }
 
+// チャットページ
 func ChatHandler(w http.ResponseWriter, r *http.Request) {
 	err := renderPage(w, "chatPage.jet", nil)
 	if err != nil {
@@ -211,6 +210,15 @@ func ChatHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// ユーザ情報削除
+func DeleteAccountHandler(w http.ResponseWriter, r *http.Request) {
+	err := renderPage(w, "deletePage.jet", nil)
+	if err != nil {
+		log.Println(err)
+	}
+}
+
+// ユーザ情報削除のページでDelete Account ボタンを押した時に行われる処理
 func DeleteHandler(w http.ResponseWriter, r *http.Request) {
 	userName := r.FormValue("userName")
 	password := r.FormValue("password")
@@ -224,6 +232,7 @@ func DeleteHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	http.Redirect(w, r, "/login", http.StatusFound)
 }
+
 func NewResistrationHandler(w http.ResponseWriter, r *http.Request) {
 	err := renderPage(w, "newResistrationPage.jet", nil)
 	if err != nil {

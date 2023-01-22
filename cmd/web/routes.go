@@ -17,6 +17,8 @@ func routes() http.Handler {
 	mux.Get("/login/newResistration", http.HandlerFunc(handler.NewResistrationHandler))
 	// ユーザ新規登録処理のハンドラ
 	mux.Post("/login/newResistrationPost", http.HandlerFunc(handler.NewResistrationPostHandler))
+	// ユーザ登録削除ページ
+	mux.Get("/login/deleteAccount", http.HandlerFunc(handler.DeleteAccountHandler))
 	// ユーザ情報削除のハンドラ
 	mux.Post("/login/delete", http.HandlerFunc(handler.DeleteHandler))
 	// チャットページのハンドラ
