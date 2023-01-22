@@ -7,18 +7,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
         integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
         crossorigin="anonymous" />
-    <title>Cheat App</title>
+    <title>Chat App</title>
     <!-- css読み込み -->
     <link rel="stylesheet" href="/static/style.css">
 </head>
 
-<body>
+<body style="background-color:#EDF7FF;">
 
 <div class="chat-container">
         <div class="chat-header">
             <label for="username">YOUR NAME</label>
             <!-- ユーザ名を入力する -->
-            <input type="text" id="username" class="username" autocomplete="off" placeholder=":) selfnote">
+            <input type="text" id="username" class="username" autocomplete="off" placeholder="Fill in the blank">
         </div>
         <!-- Chat 内容の表示 -->
         <div class="chat-body">
@@ -35,8 +35,10 @@
         </div>
     </div>
     <div class="oneline-user-container">
+        <div class="online-user">
+        </div> 
         <ul id="online-users">
-            <li>XXXX</li>
+            <li></li>
         </ul>
     </div>
     <!-- js読み込み -->

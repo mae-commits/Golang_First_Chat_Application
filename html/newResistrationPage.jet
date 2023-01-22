@@ -15,7 +15,7 @@
     <h1 class="p-3 d-flex justify-content-center">New restration Page</h1>
     
     <div class="mb-3 d-flex justify-content-center">Please fill out below.</div>
-            <form action="/login/create" method="post" class="row mb-3">
+            <form action="/login/newResistrationPost" method="post" class="row mb-3">
             
             <div class="d-flex justify-content-center">
                 Username 
