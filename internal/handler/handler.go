@@ -226,7 +226,8 @@ func DeleteHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		panic("failed to connect database")
 	}
-	count := account.DeleteUser(userName, password)
+	db.AutoMigrate(&domain.User{})
+	count := account.GetUser(userName, password)
 	if count != 0 {
 		db.Where("name = ?", userName).Where("password = ?", password).Delete(&domain.User{})
 	}
