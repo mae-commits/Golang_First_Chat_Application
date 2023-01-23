@@ -37,3 +37,34 @@
   - アプリ画面のデザイン・表示
 - SQLite
   - ユーザ名・パスワード管理（GORM）
+  
+## フォルダ構造
+```
+.
+├── README.md
+├── cmd
+│   └── web
+│       ├── main.go
+│       └── routes.go
+├── domain
+│   └── connect.go
+├── go.mod
+├── go.sum
+├── html
+│   ├── chatPage.jet
+│   ├── deletePage.jet
+│   ├── loginPage.jet
+│   └── newResistrationPage.jet
+├── internal
+│   ├── account
+│   │   └── accountResistration.go
+│   └── handler
+│       ├── go.sum
+│       └── handler.go
+├── static
+│   ├── reconnecting-websocket.min.js
+│   ├── scripts.js
+│   └── style.css
+└── userData.db
+
+```
